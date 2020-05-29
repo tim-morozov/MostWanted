@@ -276,6 +276,7 @@ function getAge(dob){
 }
 function selectFromResults(results){
   alert("Please select an individual");
-  searchByName(results);
+ let result = searchByName(results);
+ return result;
 }
 
