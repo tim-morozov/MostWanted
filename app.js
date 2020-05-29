@@ -74,7 +74,7 @@ function searchByName(people){
 }
 
 function searchByTraits(people){
-    let trait = promptFor("What criteria would like to search for? Choose gender, age, height, weight, eyecolor, occupation.");
+    let trait = promptFor("What criteria would like to search for? Choose gender, age, height, weight, eyecolor, occupation.", chars);
     let searchResults;
     switch(trait){
       case "gender":
@@ -105,7 +105,7 @@ function searchByTraits(people){
 }
 
 function searchByGender(people){
- let gender = promptFor("Please enter a gender. male or female")
+ let gender = promptFor("Please enter a gender. male or female", chars)
 
  let foundPerson = people.filter(function(person){
    if(person.gender == gender){
@@ -119,7 +119,7 @@ function searchByGender(people){
 }
 
 function searchByHeight(people){
-  let height = promptFor("Please enter a height in inches")
+  let height = promptFor("Please enter a height in inches", int)
 
   let foundPerson = people.filter(function(person){
     if(person.height == height){
@@ -133,7 +133,7 @@ function searchByHeight(people){
 }
 
 function searchByWeight(people){
-  let weight = promptFor("Please enter a weight in pounds")
+  let weight = promptFor("Please enter a weight in pounds", int)
 
   let foundPerson = people.filter(function(person){
     if(person.weight == weight){
@@ -147,7 +147,7 @@ function searchByWeight(people){
 }
 
 function searchByEyeColor(people){
-  let eyeColor = promptFor("Please enter an eyecolor, choose from blue, black, brown, hazel, or green")
+  let eyeColor = promptFor("Please enter an eyecolor, choose from blue, black, brown, hazel, or green", chars)
 
   let foundPerson = people.filter(function(person){
     if(person.eyeColor == eyeColor){
@@ -161,7 +161,7 @@ function searchByEyeColor(people){
 }
 
 function searchByOccupation(people){
-  let occupation = promptFor("Please enter an occupation")
+  let occupation = promptFor("Please enter an occupation", chars)
 
   let foundPerson = people.filter(function(person){
     if(person.occupation == occupation){
