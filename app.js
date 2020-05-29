@@ -47,6 +47,7 @@ function mainMenu(person, people){
     break;
     case "descendants":
     // TODO: get person's descendants
+      getDescendents(person, people);
     break;
     case "restart":
     app(people); // restart
@@ -378,5 +379,33 @@ function displayFamily(family) {
   alert(family.map(function(person){
     return person.role + ": " + person.firstName + " " + person.lastName;
   }).join("\n"));
+}
+
+function getDescendents(selected, people){
+  let descendants;
+  let children = getChildren(people);
+  descendants = children.filter(function(child){
+    if(child.parents[0].id === selected.id || child.parents[1].id === selected.id){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return descendants;
+}
+
+function getChildren(people){
+  let children;
+
+  children = people.filter(function(person){
+    if(person.parents.length >0){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return children;
 }
 
