@@ -341,6 +341,10 @@ function getAge(dob){
 
   return age;
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> e762314bd0636c43d23379d1c23709a97bad1454
 
 function findFamily(person, people) {
 
@@ -435,43 +439,55 @@ function findSpouse(person, people) {
 }
 
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> e762314bd0636c43d23379d1c23709a97bad1454
 function selectFromResults(results){
   alert("Please select an individual");
  let result = searchByName(results);
  return result;
 }
 
+<<<<<<< HEAD
+=======
 function displayFamily(family) {
   alert(family.map(function(person){
     return person.role + ": " + person.firstName + " " + person.lastName;
   }).join("\n"));
 }
+>>>>>>> e762314bd0636c43d23379d1c23709a97bad1454
 
 function getDescendents(selected, people){
+  let children = 1;
   let descendants;
-  let children = getChildren(people);
-  descendants = children.filter(function(child){
-    if(child.parents[0].id === selected.id || child.parents[1].id === selected.id){
-      return true;
-    }
-    else{
-      return false;
-    }
-  })
-  return descendants;
-}
-
-function getChildren(people){
-  let children;
-
+  // let children = getChildren(people);
+ 
   children = people.filter(function(person){
-    if(person.parents.length >0){
+    if(person.parents[0] === selected.id || person.parents[1] === selected.id){
       return true;
     }
     else{
       return false;
     }
   })
-  return children;
+   descendants = descendants.push(children);
+  }
+  
+  
 }
+
+// function getChildren(people){
+//   let children;
+
+//   children = people.filter(function(person){
+//     if(person.parents.length >0){
+//       return true;
+//     }
+//     else{
+//       return false;
+//     }
+//   })
+//   return children;
+// }
 
