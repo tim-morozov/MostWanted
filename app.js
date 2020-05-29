@@ -74,7 +74,59 @@ function searchByName(people){
 }
 
 function searchByTraits(people){
+    let trait = promptFor("What criteria would like to search for? Choose gender, age, height, weight or eyecolor.");
+    let searchResults;
+    switch(trait){
+      case "gender":
+       searchResults = searchByGender(people);
+      break;
 
+      case "age":
+      break;
+
+      case "height":
+        searchResults = searchByHeight(people);
+      break;
+
+      case "height":
+      break;
+
+      case "weight":
+      break;
+      
+      case "eyecolor":
+      break;
+    }
+
+
+}
+
+function searchByGender(people){
+ let gender = promptFor("Please enter a gender. male or female")
+
+ let foundPerson = people.filter(function(person){
+   if(person.gender == gender){
+     return true;
+   }
+   else{
+     return false;
+   }
+ })
+ return foundPerson;
+}
+
+function searchByHeight(people){
+  let height = promptFor("Please enter a height in inches")
+
+  let foundPerson = people.filter(function(person){
+    if(person.height == height){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return foundPerson;
 }
 
 // alerts a list of people
