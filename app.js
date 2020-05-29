@@ -155,12 +155,22 @@ function searchByWeight(people){
 }
 
 function searchByAge(people){
-  let age = promptFor("Please enter an age", int);
+  let age = parseInt(promptFor("Please enter an age", chars));
 
-  people.map(function(age) {
-    age.age = getAge(people.dob);
-    return age;
-  });
+  let personAge = people.map(function(person) {
+      person.age = getAge(person.dob)
+  })
+
+  let foundPerson = people.filter(function(person) {
+      if(person.age === age) {
+        return true;
+      }
+      else {
+        return false;
+      }
+  })
+
+  return foundPerson;
     
 
 }
