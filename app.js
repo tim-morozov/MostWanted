@@ -74,6 +74,28 @@ function searchByName(people){
 }
 
 function searchByTraits(people){
+    let trait = promptFor("What criteria would like to search for? Choose gender, age, height, weight or eyecolor.");
+
+    switch(trait){
+      case "gender":
+      break;
+
+      case "age":
+      break;
+
+      case "height":
+      break;
+
+      case "height":
+      break;
+
+      case "weight":
+      break;
+      
+      case "eyecolor":
+      break;
+    }
+
 
 }
 
