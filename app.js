@@ -39,7 +39,7 @@ function mainMenu(person, people){
   switch(displayOption){
     case "info":
       displayPerson(person);
-    // TODO: get person's info
+
     break;
     case "family":
     // TODO: get person's family
@@ -82,6 +82,7 @@ function searchByTraits(people){
       break;
 
       case "age":
+        searchResults = searchByAge(people);
       break;
 
       case "height":
@@ -100,7 +101,7 @@ function searchByTraits(people){
 }
 
 function searchByGender(people){
- let gender = promptFor("Please enter a gender. male or female")
+ let gender = promptFor("Please enter a gender. male or female");
 
  let foundPerson = people.filter(function(person){
    if(person.gender == gender){
@@ -114,7 +115,7 @@ function searchByGender(people){
 }
 
 function searchByHeight(people){
-  let height = promptFor("Please enter a height in inches")
+  let height = promptFor("Please enter a height in inches");
 
   let foundPerson = people.filter(function(person){
     if(person.height == height){
@@ -128,7 +129,7 @@ function searchByHeight(people){
 }
 
 function searchByWeight(people){
-  let weight = promptFor("Please enter a weight in pounds")
+  let weight = promptFor("Please enter a weight in pounds");
 
   let foundPerson = people.filter(function(person){
     if(person.weight == weight){
@@ -139,6 +140,17 @@ function searchByWeight(people){
     }
   })
   return foundPerson;
+}
+
+function searchByAge(people){
+  let age = promptFor("Please enter an age");
+
+  people.map(function(age) {
+    age.age = getAge(people.dob);
+    return age;
+  });
+    
+
 }
 
 // alerts a list of people
@@ -195,3 +207,5 @@ function getAge(dob){
 
   return age;
 }
+
+
