@@ -97,6 +97,7 @@ function searchByTraits(people){
       break;
 
       case "occupation":
+        searchResults = searchByOccupation(people);
       break;
     }
 
@@ -150,6 +151,20 @@ function searchByEyeColor(people){
 
   let foundPerson = people.filter(function(person){
     if(person.eyeColor == eyeColor){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return foundPerson;
+}
+
+function searchByOccupation(people){
+  let occupation = promptFor("Please enter an occupation")
+
+  let foundPerson = people.filter(function(person){
+    if(person.occupation == occupation){
       return true;
     }
     else{
