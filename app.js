@@ -112,7 +112,7 @@ function searchByGender(people){
 
 
  let foundPerson = people.filter(function(person){
-   if(person.gender == gender){
+   if(person.gender === gender){
      return true;
    }
    else{
@@ -128,7 +128,7 @@ function searchByHeight(people){
 
 
   let foundPerson = people.filter(function(person){
-    if(person.height == height){
+    if(person.height === height){
       return true;
     }
     else{
@@ -144,7 +144,7 @@ function searchByWeight(people){
   let weight = promptFor("Please enter a weight in pounds", chars).parseInt();
 
   let foundPerson = people.filter(function(person){
-    if(person.weight == weight){
+    if(person.weight === weight){
       return true;
     }
     else{
@@ -169,7 +169,7 @@ function searchByEyeColor(people){
   let eyeColor = promptFor("Please enter an eyecolor, choose from blue, black, brown, hazel, or green", chars)
 
   let foundPerson = people.filter(function(person){
-    if(person.eyeColor == eyeColor){
+    if(person.eyeColor === eyeColor){
       return true;
     }
     else{
@@ -183,7 +183,7 @@ function searchByOccupation(people){
   let occupation = promptFor("Please enter an occupation", chars)
 
   let foundPerson = people.filter(function(person){
-    if(person.occupation == occupation){
+    if(person.occupation === occupation){
       return true;
     }
     else{
@@ -203,6 +203,7 @@ function checkSearch(searchResults){
     break;
 
     case "no":
+      displayPeople(searchResults);
     break;
   }
 }
