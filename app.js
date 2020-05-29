@@ -75,9 +75,10 @@ function searchByName(people){
 
 function searchByTraits(people){
     let trait = promptFor("What criteria would like to search for? Choose gender, age, height, weight or eyecolor.");
-
+    let searchResults;
     switch(trait){
       case "gender":
+       searchResults = searchByGender(people);
       break;
 
       case "age":
@@ -97,6 +98,20 @@ function searchByTraits(people){
     }
 
 
+}
+
+function searchByGender(people){
+ let gender = promptFor("Please enter a gender. male or female")
+
+ let foundPerson = people.filter(function(person){
+   if(person.gender == gender){
+     return true;
+   }
+   else{
+     return false;
+   }
+ })
+ return foundPerson;
 }
 
 // alerts a list of people
