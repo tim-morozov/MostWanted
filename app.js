@@ -76,6 +76,7 @@ function searchByName(people){
 function searchByTraits(people){
     let trait = promptFor("What criteria would like to search for? Choose gender, age, height, weight, eyecolor, occupation.", chars);
     let searchResults;
+    let selected;
     switch(trait){
       case "gender":
        searchResults = searchByGender(people);
@@ -103,6 +104,8 @@ function searchByTraits(people){
     }
 
    checkSearch(searchResults);
+   selected = selectFromResults(searchResults);
+   mainMenu(selected, people);
 }
 
 function searchByGender(people){
@@ -261,5 +264,8 @@ function getAge(dob){
 
   return age;
 }
-
+function selectFromResults(results){
+  alert("Please select an individual");
+  searchByName(results);
+}
 
