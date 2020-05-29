@@ -39,9 +39,10 @@ function mainMenu(person, people){
   switch(displayOption){
     case "info":
       displayPerson(person);
-
     break;
     case "family":
+      let family = findFamily(person, people);
+      displayFamily(family);
     // TODO: get person's family
     break;
     case "descendants":
@@ -225,8 +226,7 @@ function displayPeople(people){
 }
 
 function displayPerson(person){
-  // print all of the information about a person:
-  // height, weight, age, name, occupation, eye color.
+
   let personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
   personInfo += "Gender: " + person.gender + "\n";
@@ -271,5 +271,98 @@ function getAge(dob){
 
   return age;
 }
+
+function findFamily(person, people) {
+
+    let personParents = findParents(person, people);
+    let personSiblings = findSiblings(person, people);
+    let personSpouse = findSpouse(person, people);
+
+
+  let foundPerson = personParents.concat(personSiblings).concat(personSpouse);
+
+  return foundPerson;
+
+}
+
+function findParents(person, people){
+
+  let parents = people.filter(function(individual) {
+    if (individual.id === person.parents[0] || individual.id === person.parents[1]) {
+      return true;
+    }
+
+    else {
+      return false;
+    }
+  })
+
+  parents.map(function(individual) {
+    if(individual.gender === "female") {
+      individual.role = "Mother";
+    }
+
+    else {
+      individual.role = "Father"
+    }
+
+  })
+
+  return parents;
+
+}
+
+function findSiblings(person, people) {
+
+  let siblings = people.filter(function(member) {
+    if (person.id === member.id) {
+      return false;
+    }
+    if (person.parents[0] === member.parents[0] || person.parents[1] === member.parents[0] || person.parents[0] === member.parents[1] || person.parents[1] === member.parents[1]) {
+      return true;
+    }
+
+    else {
+      return false;
+    }
+  })
+
+  siblings.map(function(individual) {
+    if(individual.gender === "female") {
+      individual.role = "Sister";
+    }
+
+    else {
+      individual.role = "Brother"
+    }
+
+  })
+
+  return siblings;
+}
+
+function findSpouse(person, people) {
+
+  let findSpouse = people.filter(function(spouse) {
+    if (person.currentSpouse === spouse.id) {
+      if(spouse.gender === "female") {
+        spouse.role = "Wife";
+      }
+
+      else {
+        spouse.role = "Husband";
+      }
+      return true;
+    }
+
+    else {
+      return false;
+    }
+  })
+
+  return findSpouse;
+
+}
+
 
 
