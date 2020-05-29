@@ -174,13 +174,13 @@ function searchByOccupation(people){
   return foundPerson;
 }
 
-function checkSearch(searchResults, people){
+function checkSearch(searchResults){
   let response = promptFor("Would you like to search using another criteria? yes or no", chars)
 
   switch(response){
 
     case "yes":
-      searchByTraits(people)
+      searchByTraits(searchResults);
     break;
 
     case "no":
