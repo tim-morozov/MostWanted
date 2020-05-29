@@ -43,7 +43,7 @@ function mainMenu(person, people){
     case "family":
       let family = findFamily(person, people);
       displayFamily(family);
-    // TODO: get person's family
+
     break;
     case "descendants":
     // TODO: get person's descendants
@@ -275,7 +275,10 @@ function getAge(dob){
 
   return age;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> e762314bd0636c43d23379d1c23709a97bad1454
 
 function findFamily(person, people) {
 
@@ -370,13 +373,24 @@ function findSpouse(person, people) {
 }
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> e762314bd0636c43d23379d1c23709a97bad1454
 function selectFromResults(results){
   alert("Please select an individual");
  let result = searchByName(results);
  return result;
 }
 
+<<<<<<< HEAD
+=======
+function displayFamily(family) {
+  alert(family.map(function(person){
+    return person.role + ": " + person.firstName + " " + person.lastName;
+  }).join("\n"));
+}
+>>>>>>> e762314bd0636c43d23379d1c23709a97bad1454
 
 function getDescendents(selected, people){
   let children = 1;
