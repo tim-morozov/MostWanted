@@ -38,6 +38,7 @@ function mainMenu(person, people){
 
   switch(displayOption){
     case "info":
+      displayPerson(person);
     // TODO: get person's info
     break;
     case "family":
@@ -68,7 +69,6 @@ function searchByName(people){
       return false;
     }
   })
-  // TODO: find the person using the name they entered
   foundPerson = foundPerson[0];
   return foundPerson;
 }
@@ -153,7 +153,14 @@ function displayPerson(person){
   // height, weight, age, name, occupation, eye color.
   let personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
-  // TODO: finish getting the rest of the information to display
+  personInfo += "Gender: " + person.gender + "\n";
+  personInfo += "Date Of Birth: " + person.dob + "\n";
+  personInfo += "Age: " + getAge(person.dob) + "\n";
+  personInfo += "Weight: " + person.weight + "\n";
+  personInfo += "Height: " + person.height + "\n";
+  personInfo += "Eye Color: " + person.eyeColor + "\n";
+  personInfo += "Occupation: " + person.occupation + "\n";
+
   alert(personInfo);
 }
 
@@ -173,4 +180,18 @@ function yesNo(input){
 // helper function to pass in as default promptFor validation
 function chars(input){
   return true; // default validation only
+}
+
+function getAge(dob){
+  let today = new Date();
+  let birthDate = new Date(dob);
+  let age = today.getFullYear() - birthDate.getFullYear();
+  var month = today.getMonth() - birthDate.getMonth();
+
+  if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
+    age = age - 1;
+
+  }
+
+  return age;
 }
