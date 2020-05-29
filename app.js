@@ -74,7 +74,7 @@ function searchByName(people){
 }
 
 function searchByTraits(people){
-    let trait = promptFor("What criteria would like to search for? Choose gender, age, height, weight or eyecolor.");
+    let trait = promptFor("What criteria would like to search for? Choose gender, age, height, weight, eyecolor, occupation.");
     let searchResults;
     switch(trait){
       case "gender":
@@ -93,6 +93,10 @@ function searchByTraits(people){
       break;
       
       case "eyecolor":
+        searchResults = searchByEyeColor(people);
+      break;
+
+      case "occupation":
       break;
     }
 
@@ -132,6 +136,20 @@ function searchByWeight(people){
 
   let foundPerson = people.filter(function(person){
     if(person.weight == weight){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return foundPerson;
+}
+
+function searchByEyeColor(people){
+  let eyeColor = promptFor("Please enter an eyecolor, choose from blue, black, brown, hazel, or green")
+
+  let foundPerson = people.filter(function(person){
+    if(person.eyeColor == eyeColor){
       return true;
     }
     else{
