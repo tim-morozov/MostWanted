@@ -102,7 +102,7 @@ function searchByTraits(people){
       break;
     }
 
-   checkSearch(searchResults, people);
+   checkSearch(searchResults);
 }
 
 function searchByGender(people){
@@ -124,7 +124,7 @@ function searchByGender(people){
 
 function searchByHeight(people){
 
-  let height = promptFor("Please enter a height in inches", int);
+  let height = promptFor("Please enter a height in inches", chars).parseInt();
 
 
   let foundPerson = people.filter(function(person){
@@ -141,7 +141,7 @@ function searchByHeight(people){
 function searchByWeight(people){
 
 
-  let weight = promptFor("Please enter a weight in pounds", int);
+  let weight = promptFor("Please enter a weight in pounds", chars).parseInt();
 
   let foundPerson = people.filter(function(person){
     if(person.weight == weight){
