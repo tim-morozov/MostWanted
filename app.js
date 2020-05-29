@@ -74,7 +74,7 @@ function searchByName(people){
 }
 
 function searchByTraits(people){
-    let trait = promptFor("What criteria would like to search for? Choose gender, age, height, weight or eyecolor.");
+    let trait = promptFor("What criteria would like to search for? Choose gender, age, height, weight, eyecolor, occupation.", chars);
     let searchResults;
     switch(trait){
       case "gender":
@@ -94,14 +94,22 @@ function searchByTraits(people){
       break;
       
       case "eyecolor":
+        searchResults = searchByEyeColor(people);
+      break;
+
+      case "occupation":
+        searchResults = searchByOccupation(people);
       break;
     }
 
-
+   checkSearch(searchResults, people);
 }
 
 function searchByGender(people){
- let gender = promptFor("Please enter a gender. male or female");
+
+
+ let gender = promptFor("Please enter a gender. male or female", chars);
+
 
  let foundPerson = people.filter(function(person){
    if(person.gender == gender){
@@ -115,7 +123,9 @@ function searchByGender(people){
 }
 
 function searchByHeight(people){
-  let height = promptFor("Please enter a height in inches");
+
+  let height = promptFor("Please enter a height in inches", int);
+
 
   let foundPerson = people.filter(function(person){
     if(person.height == height){
@@ -129,7 +139,9 @@ function searchByHeight(people){
 }
 
 function searchByWeight(people){
-  let weight = promptFor("Please enter a weight in pounds");
+
+
+  let weight = promptFor("Please enter a weight in pounds", int);
 
   let foundPerson = people.filter(function(person){
     if(person.weight == weight){
@@ -143,7 +155,7 @@ function searchByWeight(people){
 }
 
 function searchByAge(people){
-  let age = promptFor("Please enter an age");
+  let age = promptFor("Please enter an age", int);
 
   people.map(function(age) {
     age.age = getAge(people.dob);
@@ -153,6 +165,47 @@ function searchByAge(people){
 
 }
 
+function searchByEyeColor(people){
+  let eyeColor = promptFor("Please enter an eyecolor, choose from blue, black, brown, hazel, or green", chars)
+
+  let foundPerson = people.filter(function(person){
+    if(person.eyeColor == eyeColor){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return foundPerson;
+}
+
+function searchByOccupation(people){
+  let occupation = promptFor("Please enter an occupation", chars)
+
+  let foundPerson = people.filter(function(person){
+    if(person.occupation == occupation){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return foundPerson;
+}
+
+function checkSearch(searchResults, people){
+  let response = promptFor("Would you like to search using another criteria? yes or no", chars)
+
+  switch(response){
+
+    case "yes":
+      searchByTraits(people)
+    break;
+
+    case "no":
+    break;
+  }
+}
 // alerts a list of people
 function displayPeople(people){
   alert(people.map(function(person){
