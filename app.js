@@ -102,7 +102,7 @@ function searchByTraits(people){
       break;
     }
 
-   checkSearch(searchResults, people);
+   checkSearch(searchResults);
 }
 
 function searchByGender(people){
@@ -112,7 +112,7 @@ function searchByGender(people){
 
 
  let foundPerson = people.filter(function(person){
-   if(person.gender == gender){
+   if(person.gender === gender){
      return true;
    }
    else{
@@ -124,11 +124,11 @@ function searchByGender(people){
 
 function searchByHeight(people){
 
-  let height = promptFor("Please enter a height in inches", int);
+  let height = promptFor("Please enter a height in inches", chars).parseInt();
 
 
   let foundPerson = people.filter(function(person){
-    if(person.height == height){
+    if(person.height === height){
       return true;
     }
     else{
@@ -141,10 +141,10 @@ function searchByHeight(people){
 function searchByWeight(people){
 
 
-  let weight = promptFor("Please enter a weight in pounds", int);
+  let weight = promptFor("Please enter a weight in pounds", chars).parseInt();
 
   let foundPerson = people.filter(function(person){
-    if(person.weight == weight){
+    if(person.weight === weight){
       return true;
     }
     else{
@@ -179,7 +179,7 @@ function searchByEyeColor(people){
   let eyeColor = promptFor("Please enter an eyecolor, choose from blue, black, brown, hazel, or green", chars)
 
   let foundPerson = people.filter(function(person){
-    if(person.eyeColor == eyeColor){
+    if(person.eyeColor === eyeColor){
       return true;
     }
     else{
@@ -193,7 +193,7 @@ function searchByOccupation(people){
   let occupation = promptFor("Please enter an occupation", chars)
 
   let foundPerson = people.filter(function(person){
-    if(person.occupation == occupation){
+    if(person.occupation === occupation){
       return true;
     }
     else{
@@ -203,16 +203,17 @@ function searchByOccupation(people){
   return foundPerson;
 }
 
-function checkSearch(searchResults, people){
+function checkSearch(searchResults){
   let response = promptFor("Would you like to search using another criteria? yes or no", chars)
 
   switch(response){
 
     case "yes":
-      searchByTraits(people)
+      searchByTraits(searchResults);
     break;
 
     case "no":
+      displayPeople(searchResults);
     break;
   }
 }
