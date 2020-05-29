@@ -85,6 +85,7 @@ function searchByTraits(people){
       break;
 
       case "height":
+        searchResults = searchByHeight(people);
       break;
 
       case "height":
@@ -112,6 +113,20 @@ function searchByGender(people){
    }
  })
  return foundPerson;
+}
+
+function searchByHeight(people){
+  let height = promptFor("Please enter a height in inches")
+
+  let foundPerson = people.filter(function(person){
+    if(person.height == height){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return foundPerson;
 }
 
 // alerts a list of people
