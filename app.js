@@ -88,10 +88,8 @@ function searchByTraits(people){
         searchResults = searchByHeight(people);
       break;
 
-      case "height":
-      break;
-
       case "weight":
+        searchResults = searchByWeight(people);
       break;
       
       case "eyecolor":
@@ -120,6 +118,20 @@ function searchByHeight(people){
 
   let foundPerson = people.filter(function(person){
     if(person.height == height){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return foundPerson;
+}
+
+function searchByWeight(people){
+  let weight = promptFor("Please enter a weight in pounds")
+
+  let foundPerson = people.filter(function(person){
+    if(person.weight == weight){
       return true;
     }
     else{
