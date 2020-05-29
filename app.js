@@ -175,7 +175,7 @@ function searchByOccupation(people){
 }
 
 function checkSearch(searchResults, people){
-  let response = promptFor("Would you like to search using another criteria? yes or no")
+  let response = promptFor("Would you like to search using another criteria? yes or no", chars)
 
   switch(response){
 
