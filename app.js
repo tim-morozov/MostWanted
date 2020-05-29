@@ -101,7 +101,7 @@ function searchByTraits(people){
       break;
     }
 
-
+   checkSearch(searchResults, people);
 }
 
 function searchByGender(people){
@@ -174,6 +174,19 @@ function searchByOccupation(people){
   return foundPerson;
 }
 
+function checkSearch(searchResults, people){
+  let response = promptFor("Would you like to search using another criteria? yes or no")
+
+  switch(response){
+
+    case "yes":
+      searchByTraits(people)
+    break;
+
+    case "no":
+    break;
+  }
+}
 // alerts a list of people
 function displayPeople(people){
   alert(people.map(function(person){
