@@ -1,13 +1,7 @@
 html, body {
     background: url("images/handcuffs.jpg") no-repeat center fixed;
     background-size: cover;
-<<<<<<< HEAD
-    opacity: 1;
-=======
-    
-    
-    
->>>>>>> 7a262b97dfc0bd5fa13027cfb986341e2156c6a7
+   
   }
   
 
@@ -16,11 +10,6 @@ main{
     margin-left: 50px;
     margin-right: 50px;
     margin-bottom: 100px;
-<<<<<<< HEAD
-=======
-    
-   
->>>>>>> 7a262b97dfc0bd5fa13027cfb986341e2156c6a7
 }
 
 .bg {
@@ -40,13 +29,12 @@ main{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-color: black;
     color: azure;
-    width: 100%;
     
 }
 
 .intro-search {
     padding-top: 20px;
-    
+   z-index: 2;
 }
 
 .slideshow-container {
@@ -62,7 +50,7 @@ main{
   }
 
   .text {
-    color: #f3ddddd0;
+    color: #f2f2f2d0;
     font-size: 20px;
     padding: 8px 12px;
     position: absolute;
@@ -71,6 +59,7 @@ main{
     text-align: center;
   }
   
+
   .dot {
     cursor: pointer;
     height: 15px;
@@ -107,19 +96,11 @@ main{
 .introduction {
     text-align: center;
     font-size: 20px;
-<<<<<<< HEAD
     padding-top: 5px;
     padding-left: 5px;
     padding-right: 5px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-color: rgb(161, 99, 99);
-=======
-    padding-top: 20px;
-    padding-bottom: 20px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
->>>>>>> 7a262b97dfc0bd5fa13027cfb986341e2156c6a7
 }
 
 
