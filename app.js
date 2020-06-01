@@ -61,8 +61,8 @@ function mainMenu(person, people){
 }
 
 function searchByName(people){
-  let firstName = promptFor("What is the person's first name?", chars);
-  let lastName = promptFor("What is the person's last name?", chars);
+  let firstName = promptFor("What is the person's first name?", string);
+  let lastName = promptFor("What is the person's last name?", string);
 
   let foundPerson = people.filter(function(person){
     if(person.firstName === firstName && person.lastName === lastName){
@@ -77,7 +77,7 @@ function searchByName(people){
 }
 
 function searchByTraits(people){
-    let trait = promptFor("What criteria would like to search for? Choose gender, age, height, weight, eyecolor, occupation.", chars);
+    let trait = promptFor("What criteria would like to search for? Choose gender, age, height, weight, eyecolor, occupation.", traits).toLowerCase();
     let searchResults;
     let selected;
     switch(trait){
@@ -114,7 +114,7 @@ function searchByTraits(people){
 function searchByGender(people){
 
 
- let gender = promptFor("Please enter a gender. male or female", chars);
+ let gender = promptFor("Please enter a gender. male or female", genders).toLowerCase();
 
 
  let foundPerson = people.filter(function(person){
@@ -130,7 +130,7 @@ function searchByGender(people){
 
 function searchByHeight(people){
 
-  let height = promptFor("Please enter a height in inches", chars).parseInt();
+  let height = parseInt(promptFor("Please enter a height in inches", int));
 
 
   let foundPerson = people.filter(function(person){
@@ -147,7 +147,7 @@ function searchByHeight(people){
 function searchByWeight(people){
 
 
-  let weight = promptFor("Please enter a weight in pounds", chars).parseInt();
+  let weight = parseInt(promptFor("Please enter a weight in pounds", int));
 
   let foundPerson = people.filter(function(person){
     if(person.weight === weight){
@@ -161,7 +161,7 @@ function searchByWeight(people){
 }
 
 function searchByAge(people){
-  let age = parseInt(promptFor("Please enter an age", chars));
+  let age = parseInt(promptFor("Please enter an age", int));
 
   let personAge = people.map(function(person) {
       person.age = getAge(person.dob)
@@ -182,7 +182,7 @@ function searchByAge(people){
 }
 
 function searchByEyeColor(people){
-  let eyeColor = promptFor("Please enter an eyecolor, choose from blue, black, brown, hazel, or green", chars)
+  let eyeColor = promptFor("Please enter an eyecolor, choose from blue, black, brown, hazel, or green", color).toLowerCase();
 
   let foundPerson = people.filter(function(person){
     if(person.eyeColor === eyeColor){
@@ -196,7 +196,7 @@ function searchByEyeColor(people){
 }
 
 function searchByOccupation(people){
-  let occupation = promptFor("Please enter an occupation", chars)
+  let occupation = promptFor("Please enter an occupation", chars).toLowerCase();
 
   let foundPerson = people.filter(function(person){
     if(person.occupation === occupation){
@@ -210,7 +210,7 @@ function searchByOccupation(people){
 }
 
 function checkSearch(searchResults){
-  let response = promptFor("Would you like to search using another criteria? yes or no", chars)
+  let response = promptFor("Would you like to search using another criteria? yes or no", yesNo);
 
   switch(response){
 
@@ -258,9 +258,80 @@ function yesNo(input){
   return input.toLowerCase() == "yes" || input.toLowerCase() == "no";
 }
 
-// helper function to pass in as default promptFor validation
+// helper function to pass into promptFor to validate occupation method user input
 function chars(input){
-  return true; // default validation only
+  let userInput = input.toLowerCase();
+  if(userInput === "") {
+    alert("Field can not be empty, please enter an occupation");
+    return false;
+
+  }
+  return true; 
+}
+
+//helper function to pass into promptFor to validate searchByName input
+function string(input) {
+  let userInput = input.toLowerCase();
+  
+  if(userInput === "") {
+    alert("Must type a name");
+    return false;
+  }
+
+  else if (userInput[0] === userInput[0].toLowerCase()) {
+    alert("Please capitalize the beginning letter");
+    return false;
+  }
+
+  return true;
+}
+
+//helper function to pass into promptFor to validate integers
+function int(input) {
+  if (isNaN(input) || input < 1 || input > 500) {
+    alert("Please enter a valid number");
+    return false;
+  }
+  return true;
+}
+
+//helper function to pass into promptFor to validate searchByGender input
+function genders(input) {
+    if (input.toLowerCase() == "female" || input.toLowerCase() == "male") {
+      return true;
+    }
+
+    else {
+      alert("Please enter male or female");
+      return false;
+    }
+}
+
+//helper function to pass into promptFor to validate searchByTraits input
+function traits(input) {
+  let trait = input.toLowerCase();
+  if (trait == "gender" || trait == "age" || trait == "height" || trait == "weight" || trait == "eyecolor" || trait == "occupation") {
+    return true;
+  }
+
+  else {
+     alert("Please enter a valid option");
+    return false;
+  }
+    
+}
+
+//helper function to pass into the promptFor to validate searchByEyeColor input
+function color(input) {
+  let eyes = input.toLowerCase();
+  if (eyes == "blue" || eyes == "black" || eyes == "brown" || eyes == "hazel" || eyes == "green") {
+    return true;
+  }
+  
+  else {
+    alert("Please enter a valid option");
+    return false;
+  }
 }
 
 function getAge(dob){
@@ -276,7 +347,6 @@ function getAge(dob){
 
   return age;
 }
-
 
 function findFamily(person, people) {
 
