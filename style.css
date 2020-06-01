@@ -1,9 +1,7 @@
 html, body {
     background: url("images/handcuffs.jpg") no-repeat center fixed;
     background-size: cover;
-    
-    
-    
+   
   }
   
 
@@ -12,8 +10,6 @@ main{
     margin-left: 50px;
     margin-right: 50px;
     margin-bottom: 100px;
-    
-   
 }
 
 .bg {
@@ -33,13 +29,12 @@ main{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-color: black;
     color: azure;
-    width: 100%;
     
 }
 
 .intro-search {
     padding-top: 20px;
-    
+   z-index: 2;
 }
 
 .slideshow-container {
@@ -55,7 +50,7 @@ main{
   }
 
   .text {
-    color: #f3ddddd0;
+    color: #f2f2f2d0;
     font-size: 20px;
     padding: 8px 12px;
     position: absolute;
@@ -67,6 +62,7 @@ main{
     
   }
   
+
   .dot {
     cursor: pointer;
     height: 15px;
