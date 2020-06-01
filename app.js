@@ -270,15 +270,14 @@ function chars(input){
 }
 
 //helper function to pass into promptFor to validate searchByName input
-function string(input) {
-  let userInput = input.toLowerCase();
+function string(input) { 
   
-  if(userInput === "") {
+  if(input === "") {
     alert("Must type a name");
     return false;
   }
 
-  else if (userInput[0] === userInput[0].toLowerCase()) {
+  else if (input[0] === input[0].toLowerCase()) {
     alert("Please capitalize the beginning letter");
     return false;
   }
@@ -456,7 +455,7 @@ function displayFamily(family) {
 }
 
 
-function findDescendents(selected, people){
+function findDescendants(selected, people){
   let children = people.filter(function(person){
       if(person.parents[0] === selected.id || person.parents[1] === selected.id){
         return true;
