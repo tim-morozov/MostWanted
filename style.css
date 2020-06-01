@@ -1,14 +1,26 @@
-body{
-    background-color: rgb(86, 194, 194);
-}
+html, body {
+    background: url("images/handcuffs.jpg") no-repeat center fixed;
+    background-size: cover;
+  }
+  
 
 main{
     margin-top: 0px;
     margin-left: 50px;
     margin-right: 50px;
-    margin-bottom: 10px;
-    background-color: white;
+    margin-bottom: 100px;
+   
 }
+
+.bg {
+    
+    background-image: url("images/handcuffs.jpg");
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
 
 .name {
     text-align: center;
@@ -22,7 +34,7 @@ main{
 
 .intro-search {
     padding-top: 20px;
-   
+   z-index: 2;
 }
 
 .slideshow-container {
@@ -46,13 +58,6 @@ main{
     text-align: center;
   }
   
-  .numbertext {
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
-  }
 
   .dot {
     cursor: pointer;
