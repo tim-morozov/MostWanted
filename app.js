@@ -129,7 +129,7 @@ function searchByGender(people){
 
 function searchByHeight(people){
 
-  let height = promptFor("Please enter a height in inches", int).parseInt();
+  let height = parseInt(promptFor("Please enter a height in inches", int));
 
 
   let foundPerson = people.filter(function(person){
@@ -146,7 +146,7 @@ function searchByHeight(people){
 function searchByWeight(people){
 
 
-  let weight = promptFor("Please enter a weight in pounds", int).parseInt();
+  let weight = parseInt(promptFor("Please enter a weight in pounds", int));
 
   let foundPerson = people.filter(function(person){
     if(person.weight === weight){
@@ -257,20 +257,28 @@ function yesNo(input){
   return input.toLowerCase() == "yes" || input.toLowerCase() == "no";
 }
 
-// helper function to pass in as default promptFor validation
+// helper function to pass into promptFor to validate occupation method user input
 function chars(input){
-  if(input === "") {
-    alert("Field can not be empty");
+  let userInput = input.toLowerCase();
+  if(userInput === "") {
+    alert("Field can not be empty, please enter an occupation");
     return false;
 
   }
-  return true; // default validation only
+  return true; 
 }
 
 //helper function to pass into promptFor to validate searchByName input
 function string(input) {
-  if(input === "") {
+  let userInput = input.toLowerCase();
+  
+  if(userInput === "") {
     alert("Must type a name");
+    return false;
+  }
+
+  else if (userInput[0] === userInput[0].toLowerCase()) {
+    alert("Please capitalize the beginning letter");
     return false;
   }
 
@@ -279,7 +287,7 @@ function string(input) {
 
 //helper function to pass into promptFor to validate integers
 function int(input) {
-  if (isNaN(input) || input < 1 || input > 1000) {
+  if (isNaN(input) || input < 1 || input > 500) {
     alert("Please enter a valid number");
     return false;
   }
@@ -296,10 +304,8 @@ function genders(input) {
       alert("Please enter male or female");
       return false;
     }
-
-
-
 }
+
 //helper function to pass into promptFor to validate searchByTraits input
 function traits(input) {
   let trait = input.toLowerCase();
@@ -326,7 +332,6 @@ function color(input) {
     return false;
   }
 }
-
 
 function getAge(dob){
   let today = new Date();
