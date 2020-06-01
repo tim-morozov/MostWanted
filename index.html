@@ -9,58 +9,60 @@
     <title>devCodeCamp &middot; Most Wanted</title>
   </head>
   <body>
-    <h1 class="name">DevCode's Most Wanted</h1>
-    <p class="introduction">
-      Welcome to the government's Most Wanted search engine. Click the button below to begin.
-    </p>
-    <p class="intro-search">
-      <div class="col text-center">
-        <button type="button" class="btn btn-info" onclick="app(data)">Start Searching</button>
-      </div>
-
-      <div class="slideshow-container">
-
-        <div class="mySlides fade">          
-          <img src="images/mikeT.png" width="620" height="610">
-          <div class="text">#1 Most Wanted</div>
-        </div>
-      
-        <div class="mySlides fade">         
-          <img src="images/nevin.png" width="620" height="610">
-          <div class="text">#2 Most Wanted</div>
-        </div>
-      
-        <div class="mySlides fade">
-          <img src="images/MikeH.png" width="620" height="610">
-          <div class="text">#3 Most Wanted</div>
+    <main>
+      <h1 class="name">DevCode's Most Wanted</h1>
+      <p class="introduction">
+        Welcome to the government's Most Wanted search engine. Click the button below to begin.
+      </p>
+      <p class="intro-search">
+        <div class="col text-center">
+          <button type="button" class="btn btn-info" onclick="app(data)">Start Searching</button>
         </div>
 
-        <div class="mySlides fade">
-          <img src="images/david.png" width="620" height="610">
-          <div class="text">#4 Most Wanted</div>
+        <div class="slideshow-container">
+
+          <div class="mySlides fade">          
+            <img src="images/mikeT.png" class="img-fluid" width="620" height="610">
+            <div class="text">#1 Most Wanted</div>
+          </div>
+        
+          <div class="mySlides fade">         
+            <img src="images/nevin.png" class="img-fluid" width="620" height="610">
+            <div class="text">#2 Most Wanted</div>
+          </div>
+        
+          <div class="mySlides fade">
+            <img src="images/MikeH.png" class="img-fluid" width="620" height="610">
+            <div class="text">#3 Most Wanted</div>
+          </div>
+
+          <div class="mySlides fade">
+            <img src="images/david.png" class="img-fluid" width="620" height="610">
+            <div class="text">#4 Most Wanted</div>
+          </div>
+
+          <div class="mySlides fade">
+            <img src="images/charles.png" class="img-fluid" width="620" height="610">
+            <div class="text">#5 Most Wanted</div>
+          </div>
+
+          <div class="mySlides fade">
+            <img src="images/brett.jpg" class="img-fluid" width="620" height="610">
+            <div class="text">#6 Most Wanted</div>
+          </div>
         </div>
 
-        <div class="mySlides fade">
-          <img src="images/charles.png" width="620" height="610">
-          <div class="text">#5 Most Wanted</div>
+        <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span> 
+          <span class="dot" onclick="currentSlide(2)"></span> 
+          <span class="dot" onclick="currentSlide(3)"></span> 
+          <span class="dot" onclick="currentSlide(4)"></span> 
+          <span class="dot" onclick="currentSlide(5)"></span> 
+          <span class="dot" onclick="currentSlide(6)"></span> 
         </div>
-
-        <div class="mySlides fade">
-          <img src="images/brett.jpg" width="620" height="610">
-          <div class="text">#6 Most Wanted</div>
-        </div>
-      </div>
-
-      <div style="text-align:center">
-        <span class="dot" onclick="currentSlide(1)"></span> 
-        <span class="dot" onclick="currentSlide(2)"></span> 
-        <span class="dot" onclick="currentSlide(3)"></span> 
-        <span class="dot" onclick="currentSlide(4)"></span> 
-        <span class="dot" onclick="currentSlide(5)"></span> 
-        <span class="dot" onclick="currentSlide(6)"></span> 
-      </div>
-      
-    </p>
+        
+      </p>
+    </main>
     <script src="data.js"></script>
     <script src="app.js"></script>
     <script src="slides.js"></script>
