@@ -17,6 +17,7 @@ main{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-color: black;
     color: azure;
+    width: 100%;
     
 }
 
@@ -37,7 +38,7 @@ main{
   }
 
   .text {
-    color: #f2f2f2d0;
+    color: #f3ddddd0;
     font-size: 20px;
     padding: 8px 12px;
     position: absolute;
@@ -46,14 +47,6 @@ main{
     text-align: center;
   }
   
-  .numbertext {
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
-  }
-
   .dot {
     cursor: pointer;
     height: 15px;
